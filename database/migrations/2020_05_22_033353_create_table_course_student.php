@@ -13,11 +13,11 @@ class CreateTableCourseStudent extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->unsignedInteger('couse_id');
+        Schema::create('course_student', function (Blueprint $table) {
+            $table->unsignedInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses');
-            $table->unsinedInteger('student_id');
-            $table->unsignedInteger('student_id')->referenses('id')->on('student');
+            $table->unsignedInteger('student_id');
+            $table->foreign('student_id')->references('id')->on('students');
         });
     }
 

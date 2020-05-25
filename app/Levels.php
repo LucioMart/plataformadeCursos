@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Course;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -24,5 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Levels extends Model
 {
-    //
+    public function course() {
+        return $this->hasOne(Course::class);
+    }
 }

@@ -13,15 +13,16 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('couse_id');
+            $table->unsignedInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses');
-            $table->unsinedInteger('user_id');
-            $table->unsignedInteger('user_id')->referenses('id')->on('users');
-            $table->float('rating', total,2);
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->float('rating', 2);
             $table->text('comment')->nullable();
-            $table->timestamp();
+            $table->timestamps();
         });
     }
 

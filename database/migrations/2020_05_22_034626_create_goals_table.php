@@ -13,11 +13,11 @@ class CreateGoalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('requeriments', function(Blueprint $table){
+        Schema::create('goals', function(Blueprint $table){
             $table->increments('id');
-            $table->unsignedInteger('couse_id');
+            $table->unsignedInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses');
-            $table->unsinedInteger('goal');
+            $table->string('goal');
             $table->timestamps();
         });
     }
